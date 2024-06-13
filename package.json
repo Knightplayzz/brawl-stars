@@ -1,18 +1,18 @@
 {
-  "name": "brawlstart-node",
-  "version": "1.0.1",
+  "name": "brawl-stars-node",
+  "version": "1.0.0",
   "engines": {
     "node": "v20.14.0"
   },
   "type": "commonjs",
-  "description": "Npm package that connects to the Brawl Stars API to get information. Clubs, player data ect.",
+  "description": "API wrapper for the official Brawl Stars API.",
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Knightplayzz/clash-of-clans.git"
+    "url": "git+https://github.com/Knightplayzz/brawl-stars.git"
   },
   "keywords": [
     "brawlstars",
@@ -24,9 +24,9 @@
   "author": "Philippe Smeets",
   "license": "CC BY-NC",
   "bugs": {
-    "url": "https://github.com/Knightplayzz/brawlstart-node/issues"
+    "url": "https://github.com/Knightplayzz/brawl-stars/issues"
   },
-  "homepage": "https://github.com/Knightplayzz/brawlstars#readme",
+  "homepage": "https://github.com/Knightplayzz/brawl-stars#readme",
   "dependencies": {
     "node-fetch": "^2.6.13"
   },
