@@ -3,7 +3,7 @@ sudo: false
 language: node_js
 
 node_js:
-  - 20.14.0
+  - 20
 
 before_install:
   - npm i -g npm@9.8.1
