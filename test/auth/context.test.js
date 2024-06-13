@@ -13,7 +13,7 @@ describe('Auth Token Functions', () => {
     });
 
     test('should update authToken correctly', () => {
-        const initialToken = 'initial-token';
+        const initialToken = 'MyPassword';
         const newToken = 'SampleToken';
         setAuthToken(initialToken);
         expect(getAuthToken()).toBe(initialToken);
