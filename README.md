@@ -3,11 +3,11 @@
  <br>
  <p>A light-weight module that makes <a href="https://developer.brawlstars.com/">Brawl Stars API</a> become easy.</p>
  <a href=""><img src="https://app.travis-ci.com/Knightplayzz/brawl-stars.svg?branch=main"></a>
- <a href='https://coveralls.io/github/Knightplayzz/brawl-stars?branch=main'><img src='https://coveralls.io/repos/github/Knightplayzz/brawl-stars-node/badge.svg?branch=main' alt='Coverage Status' /></a>
+ <a href='https://coveralls.io/github/Knightplayzz/brawl-stars?branch=main'><img src='https://coveralls.io/repos/github/Knightplayzz/brawl-stars/badge.svg?branch=main' alt='Coverage Status' /></a>
  <a href="https://www.npmjs.com/package/brawl-stars-node"><img src="https://img.shields.io/npm/dt/brawl-stars-node.svg?maxAge=3600"></a>
 
 <a href="https://www.npmjs.com/package/brawl-stars-node"><img src="https://img.shields.io/npm/v/brawl-stars-node" alt="Install size"></a>
- <a href="https://packagephobia.now.sh/result?p=brawl-stars-node"><img src="https://badgen.net/packagephobia/install/brawl-stars-node" alt="Current version"></a>
+ <a href="https://packagephobia.now.sh/result?p=brawl-stars-node"><img src="https://packagephobia.com/badge?p=brawl-stars-node" alt="Current version"></a>
  </div>
 
 # Introduction
