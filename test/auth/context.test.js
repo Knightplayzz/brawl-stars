@@ -14,7 +14,7 @@ describe('Auth Token Functions', () => {
 
     test('should update authToken correctly', () => {
         const initialToken = 'initial-token';
-        const newToken = 'new-token';
+        const newToken = 'SampleToken';
         setAuthToken(initialToken);
         expect(getAuthToken()).toBe(initialToken);
         setAuthToken(newToken);
