@@ -33,13 +33,13 @@ describe('getBattlelog function', () => {
     test('should fetch battle log successfully', async () => {
         const mockResponse = [{ battleId: '1', result: 'victory' }, { battleId: '2', result: 'defeat' }];
         fetch.mockResolvedValue(new Response(JSON.stringify(mockResponse), { status: 200 }));
-        context.getAuthToken.mockReturnValue('valid-token');
+        context.getAuthToken.mockReturnValue('SampleToken');
 
         const playerTag = '#ABC123';
         const data = await getBattlelog(playerTag);
 
         expect(fetch).toHaveBeenCalledWith(`https://api.brawlstars.com/v1/players/${encodeURIComponent(playerTag)}/battlelog`, {
-            headers: { 'Authorization': 'Bearer valid-token' },
+            headers: { 'Authorization': 'Bearer SampleToken' },
         });
         expect(data).toEqual(mockResponse);
     });
@@ -47,7 +47,7 @@ describe('getBattlelog function', () => {
     test('should handle fetch error and return error response', async () => {
         const errorResponse = { reason: 'error', message: 'Server error' };
         fetch.mockResolvedValue(new Response(JSON.stringify(errorResponse), { status: 500 }));
-        context.getAuthToken.mockReturnValue('valid-token');
+        context.getAuthToken.mockReturnValue('SampleToken');
 
         const playerTag = '#ABC123';
         const result = await getBattlelog(playerTag);

@@ -25,12 +25,12 @@ describe('getRankingsClubs function', () => {
         const countryCode = 'US';
         const mockResponse = [{ clubId: '1', name: 'Club 1' }, { clubId: '2', name: 'Club 2' }];
         fetch.mockResolvedValue(new Response(JSON.stringify(mockResponse), { status: 200 }));
-        context.getAuthToken.mockReturnValue('valid-token');
+        context.getAuthToken.mockReturnValue('SampleToken');
 
         const data = await getRankingsClubs(countryCode);
 
         expect(fetch).toHaveBeenCalledWith(`https://api.brawlstars.com/v1/rankings/${encodeURIComponent(countryCode)}/clubs`, {
-            headers: { 'Authorization': 'Bearer valid-token' },
+            headers: { 'Authorization': 'Bearer SampleToken' },
         });
         expect(data).toEqual(mockResponse);
     });
@@ -39,7 +39,7 @@ describe('getRankingsClubs function', () => {
         const countryCode = 'US';
         const errorResponse = { reason: 'error', message: 'Server error' };
         fetch.mockResolvedValue(new Response(JSON.stringify(errorResponse), { status: 500 }));
-        context.getAuthToken.mockReturnValue('valid-token');
+        context.getAuthToken.mockReturnValue('SampleToken');
 
         const result = await getRankingsClubs(countryCode);
 

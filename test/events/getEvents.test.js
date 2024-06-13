@@ -15,12 +15,12 @@ describe('getEvents function', () => {
     test('should fetch events successfully', async () => {
         const mockResponse = [{ id: '1', name: 'Event 1' }, { id: '2', name: 'Event 2' }];
         fetch.mockResolvedValue(new Response(JSON.stringify(mockResponse), { status: 200 }));
-        context.getAuthToken.mockReturnValue('valid-token');
+        context.getAuthToken.mockReturnValue('SampleToken');
 
         const data = await getEvents();
 
         expect(fetch).toHaveBeenCalledWith('https://api.brawlstars.com/v1/events/rotation', {
-            headers: { 'Authorization': 'Bearer valid-token' },
+            headers: { 'Authorization': 'Bearer SampleToken' },
         });
         expect(data).toEqual(mockResponse);
     });
@@ -28,7 +28,7 @@ describe('getEvents function', () => {
     test('should handle fetch error and return error response', async () => {
         const errorResponse = { reason: 'error', message: 'Server error' };
         fetch.mockResolvedValue(new Response(JSON.stringify(errorResponse), { status: 500 }));
-        context.getAuthToken.mockReturnValue('valid-token');
+        context.getAuthToken.mockReturnValue('SampleToken');
 
         const result = await getEvents();
 

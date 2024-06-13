@@ -33,13 +33,13 @@ describe('getClub function', () => {
     test('should fetch club information successfully', async () => {
         const mockResponse = { id: '123', name: 'Awesome Club' };
         fetch.mockResolvedValue(new Response(JSON.stringify(mockResponse), { status: 200 }));
-        context.getAuthToken.mockReturnValue('valid-token');
+        context.getAuthToken.mockReturnValue('SampleToken');
 
         const clubTag = '#ABC123';
         const data = await getClub(clubTag);
 
         expect(fetch).toHaveBeenCalledWith(`https://api.brawlstars.com/v1/clubs/${encodeURIComponent(clubTag)}`, {
-            headers: { 'Authorization': 'Bearer valid-token' },
+            headers: { 'Authorization': 'Bearer SampleToken' },
         });
         expect(data).toEqual(mockResponse);
     });
@@ -47,7 +47,7 @@ describe('getClub function', () => {
     test('should handle fetch error and return error response', async () => {
         const errorResponse = { reason: 'error', message: 'Server error' };
         fetch.mockResolvedValue(new Response(JSON.stringify(errorResponse), { status: 500 }));
-        context.getAuthToken.mockReturnValue('valid-token');
+        context.getAuthToken.mockReturnValue('SampleToken');
 
         const clubTag = '#ABC123';
         const result = await getClub(clubTag);

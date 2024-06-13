@@ -25,12 +25,12 @@ describe('getBrawler function', () => {
         const brawlerId = '123';
         const mockResponse = { id: '123', name: 'Shelly' };
         fetch.mockResolvedValue(new Response(JSON.stringify(mockResponse), { status: 200 }));
-        context.getAuthToken.mockReturnValue('valid-token');
+        context.getAuthToken.mockReturnValue('SampleToken');
 
         const data = await getBrawler(brawlerId);
 
         expect(fetch).toHaveBeenCalledWith(`https://api.brawlstars.com/v1/brawlers/${encodeURIComponent(brawlerId)}`, {
-            headers: { 'Authorization': 'Bearer valid-token' },
+            headers: { 'Authorization': 'Bearer SampleToken' },
         });
         expect(data).toEqual(mockResponse);
     });
@@ -38,7 +38,7 @@ describe('getBrawler function', () => {
     test('should handle fetch error', async () => {
         const brawlerId = '123';
         fetch.mockRejectedValue(new Error('Failed to fetch'));
-        context.getAuthToken.mockReturnValue('valid-token');
+        context.getAuthToken.mockReturnValue('SampleToken');
 
         await expect(getBrawler(brawlerId)).rejects.toThrow();
     });

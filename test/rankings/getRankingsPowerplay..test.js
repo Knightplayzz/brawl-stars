@@ -39,12 +39,12 @@ describe('getRankingsPowerplay function', () => {
         const seasonId = '2023';
         const mockResponse = [{ playerId: '1', name: 'Player 1' }, { playerId: '2', name: 'Player 2' }];
         fetch.mockResolvedValue(new Response(JSON.stringify(mockResponse), { status: 200 }));
-        context.getAuthToken.mockReturnValue('valid-token');
+        context.getAuthToken.mockReturnValue('SampleToken');
 
         const data = await getRankingsPowerplay(countryCode, seasonId);
 
         expect(fetch).toHaveBeenCalledWith(`https://api.brawlstars.com/v1/rankings/${encodeURIComponent(countryCode)}/players`, {
-            headers: { 'Authorization': 'Bearer valid-token' },
+            headers: { 'Authorization': 'Bearer SampleToken' },
         });
         expect(data).toEqual(mockResponse);
     });
@@ -54,7 +54,7 @@ describe('getRankingsPowerplay function', () => {
         const seasonId = '2023';
         const errorResponse = { reason: 'error', message: 'Server error' };
         fetch.mockResolvedValue(new Response(JSON.stringify(errorResponse), { status: 500 }));
-        context.getAuthToken.mockReturnValue('valid-token');
+        context.getAuthToken.mockReturnValue('SampleToken');
 
         const result = await getRankingsPowerplay(countryCode, seasonId);
 

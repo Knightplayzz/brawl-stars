@@ -19,20 +19,20 @@ describe('login function', () => {
 
     test('should throw an error if fetch response is not ok', async () => {
         fetch.mockResolvedValue(new Response(null, { status: 401 }));
-        context.getAuthToken.mockReturnValue('invalid-token');
+        context.getAuthToken.mockReturnValue('SampleToken');
 
-        await expect(login('valid-token')).rejects.toThrow('Authentication token is wrong.');
+        await expect(login('SampleToken')).rejects.toThrow('Authentication token is wrong.');
     });
 
     test('should set auth token and log in successfully if fetch response is ok', async () => {
         fetch.mockResolvedValue(new Response(null, { status: 200 }));
-        context.getAuthToken.mockReturnValue('valid-token');
+        context.getAuthToken.mockReturnValue('SampleToken');
 
         console.log = jest.fn(); // Mock console.log
 
-        await login('valid-token');
+        await login('SampleToken');
 
-        expect(context.setAuthToken).toHaveBeenCalledWith('valid-token');
+        expect(context.setAuthToken).toHaveBeenCalledWith('SampleToken');
         expect(console.log).toHaveBeenCalledWith('You succesfully logged in.');
     });
 });
